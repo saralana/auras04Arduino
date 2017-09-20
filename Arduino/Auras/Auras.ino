@@ -4,7 +4,7 @@
 #include <avr/power.h>
 #endif
 
-enum Lid { OPEN = 110, CLOSED = 175 };
+enum Lid { OPEN = 110, CLOSED = 171 };
 
 short SERVO_PIN = 3;
 short LID_PIN = 2;
@@ -23,7 +23,7 @@ void setup() {
   mLid = OPEN;
   myservo.write(OPEN);
   mPixels.begin();
-  mPixels.setBrightness(128);
+  mPixels.setBrightness(255);
   mPixels.show();
 }
 
@@ -37,13 +37,11 @@ void loop() {
     if (analogRead(SHUTTER_PIN) < SHUTTER_THRESHOLD) {
       delay(100);
 
-      showQuarterPixels(mPixels, 0, 100, mPixels.Color(0, 0, 255));
-      showQuarterPixels(mPixels, 1, 100, mPixels.Color(255, 0, 0));
-      showQuarterPixels(mPixels, 2, 100, mPixels.Color(0, 255, 0));
-      showQuarterPixels(mPixels, 3, 100, mPixels.Color(255, 0, 255));
+      showQuarterPixels(mPixels, 0, 30, mPixels.Color(0, 0, 255));
+      clearPixels(mPixels, 100);
+      showQuarterPixels(mPixels, 2, 30, mPixels.Color(0, 255, 0));
 
-      clearPixels(mPixels);
-      delay(1000);
+      clearPixels(mPixels, 1800);
 
       mLid = OPEN;
       myservo.write(OPEN);
@@ -52,11 +50,15 @@ void loop() {
   }
 }
 
+void clearPixels(Adafruit_NeoPixel &mPixels, short mDelay) {
+  clearPixels(mPixels);
+  delay(mDelay);
+}
+
 void clearPixels(Adafruit_NeoPixel &mPixels) {
-  for (int i = 0; i < mPixels.numPixels(); i++) {
-    mPixels.setPixelColor(i, mPixels.Color(0, 0, 0));
+  for (short i = 0; i < 4; i++) {
+    showQuarterPixels(mPixels, i, 0, mPixels.Color(0, 0, 0));
   }
-  mPixels.show();
 }
 
 void showQuarterPixels(Adafruit_NeoPixel &mPixels, short mQuarter, short mDelay, uint32_t mColor) {
