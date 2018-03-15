@@ -3,7 +3,7 @@
 #include <avr/power.h>
 #endif
 
-short PIXEL_PIN = 6;
+short PIXEL_PIN = 5;
 
 Adafruit_NeoPixel mPixels = Adafruit_NeoPixel(16, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
