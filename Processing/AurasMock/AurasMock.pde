@@ -1,6 +1,7 @@
 import processing.video.*;
 
 Capture cam;
+PGraphics brightnessMask;
 PImage photo, acrossAura, offCenterAura;
 ArrayList<PImage> cornerAuras;
 
@@ -10,6 +11,9 @@ void setup() {
   size(720, 720);
   photo = loadImage("tgh.jpg");
   photo.resize(0, height);
+
+  brightnessMask = createGraphics(width, height);
+
   acrossAura = loadImage("aura-across.png");
   offCenterAura = loadImage("aura-offcenter.png");
   cornerAuras = new ArrayList<PImage>();
@@ -29,6 +33,7 @@ void draw() {
   if (cam.available()) {
     cam.read();
     cam.resize(0, height);
+    adjustBrightnessContrast(cam, 255);
   }
 
   if (bCapture) {
@@ -105,4 +110,21 @@ void mousePressed() {
 
 void keyPressed() {
   mousePressed();
+}
+
+void adjustBrightnessContrast(PImage pimg, int value) {
+  PImage original = createImage(pimg.width, pimg.height, ARGB);
+  original.set(0, 0, pimg);
+
+  brightnessMask.beginDraw();
+  brightnessMask.background(value);
+  brightnessMask.endDraw();
+
+  pimg.blend(brightnessMask,
+    0, 0, brightnessMask.width, brightnessMask.height,
+    0, 0, pimg.width, pimg.height, DARKEST);
+
+  pimg.blend(original,
+    0, 0, original.width, original.height,
+    0, 0, pimg.width, pimg.height, BURN);
 }
