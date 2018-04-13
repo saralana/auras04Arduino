@@ -5,7 +5,7 @@
 
 short PIXEL_PIN = 5;
 
-Adafruit_NeoPixel mPixels = Adafruit_NeoPixel(16, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel mPixels = Adafruit_NeoPixel(24, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   mPixels.begin();
