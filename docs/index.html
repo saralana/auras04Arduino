@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SU - Auras</title>
+
+    <meta name="description" content="Auras App">
+    <meta name="keywords" content="art, arte, aura, auras">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; media-src 'self'; frame-src player.vimeo.com www.youtube.com; frame-ancestors 'self'; script-src 'self' ajax.googleapis.com www.google-analytics.com cdnjs.cloudflare.com use.fontawesome.com; font-src 'self' data: maxcdn.bootstrapcdn.com fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' maxcdn.bootstrapcdn.com fonts.googleapis.com; base-uri 'self'; form-action 'self';">
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
+            integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+            integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="tablet">
+      <div class="content">
+        <div class="intro-text">Click na foto para ver sua aura</div>
+        <div id="p5-canvas" class="photo-preview-container"></div>
+
+        <div class="button-container invisible">
+          <div class="button button-retake">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+
+          <div class="button button-share">
+            <i class="fas fa-share"></i>
+          </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+        <script src="photo.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

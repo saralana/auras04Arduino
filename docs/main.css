@@ -1,0 +1,103 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+s {
+  text-decoration:line-through;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  font: normal 24px 'Raleway', 'Arial';
+  color: #888;
+
+  background-color: rgba(255,255,255,1);
+}
+
+a {
+  font: 900 24px 'Raleway', 'Arial';
+  color: #eee;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.1s linear;
+}
+a:visited {
+  color: #eee;
+}
+
+a:hover {
+  color: #eee;
+}
+
+.tablet {
+  height: 100vh;
+  max-height: 133vw;
+  max-width: 75vh;
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0 auto;
+  border: 2px #000 solid;
+}
+
+.content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.intro-text {
+  text-align: left;
+  padding: 24px 4px;
+  font-size: 18px;
+}
+
+.photo-preview-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button {
+  width: 45%;
+  margin: 2.5%;
+  padding: 4px 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.1s linear;
+}
+
+.button:hover {
+  background-color: #666;
+}
+
+.invisible {
+  display: none;
+}
